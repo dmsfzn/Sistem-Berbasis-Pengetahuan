@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hasil Rekomendasi Smartphone</title>
+    <link rel="stylesheet" href="rekomendasi.css">
+</head>
+<body>
+    <div class="consult-container">
+        <div class="consult-emoji">📱✨</div>
+        <h2 class="consult-title">Hasil Rekomendasi Smartphone</h2>
+        <div id="result-box" class="result" style="margin-top:2rem;"></div>
+        <a href="rekomendasi.html" class="submit-btn" style="width:auto;display:inline-block;margin-top:2rem;">Kembali ke Konsultasi</a>
+    </div>
+    <script>
+    // Ambil hasil dari query string
+    function getQueryParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+    const hasil = getQueryParam('hasil');
+    if (hasil) {
+      document.getElementById('result-box').innerHTML = decodeURIComponent(hasil.replace(/\+/g, ' '));
+    } else {
+      document.getElementById('result-box').innerHTML = '<b>Tidak ada hasil rekomendasi.</b>';
+    }
+    </script>
+</body>
+</html>

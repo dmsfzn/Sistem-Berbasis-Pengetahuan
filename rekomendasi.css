@@ -1,0 +1,166 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e0e7ff 100%);
+    margin: 0;
+    padding: 0;
+}
+
+.consult-container {
+    max-width: 440px;
+    margin: 3rem auto 0 auto;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e0e7ff 100%);
+    border-radius: 22px;
+    box-shadow: 0 4px 24px rgba(99,102,241,0.13);
+    padding: 2.5rem 2rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.consult-emoji {
+    font-size: 2.7rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    animation: bounce 1.5s infinite alternate;
+}
+
+.consult-title {
+    text-align: center;
+    color: #4f46e5;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+
+.consult-progress {
+    width: 100%;
+    height: 10px;
+    background: #e0e7ff;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+.progress-bar {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1 60%, #f472b6 100%);
+    border-radius: 8px;
+    animation: progressBar 1.2s;
+}
+@keyframes progressBar {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.form-group.card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(99,102,241,0.07);
+    padding: 1.2rem 1rem 0.7rem 1rem;
+    margin-bottom: 1.3rem;
+    border: 1.5px dashed #c7d2fe;
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+}
+.form-group.card:hover {
+    box-shadow: 0 6px 24px rgba(99,102,241,0.13);
+    transform: translateY(-3px) scale(1.01);
+}
+
+.q-emoji {
+    font-size: 1.2rem;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #334155;
+    font-weight: 500;
+    font-size: 1.08rem;
+}
+.form-group select {
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 1rem;
+    background: #f8fafc;
+    color: #334155;
+    outline: none;
+    transition: border 0.2s;
+}
+.form-group select:focus {
+    border: 1.5px solid #6366f1;
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #6366f1 60%, #f472b6 100%);
+    color: #fff;
+    border: none;
+    padding: 1rem 0;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(99,102,241,0.08);
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 0.5rem;
+}
+.submit-btn:hover {
+    background: linear-gradient(90deg, #4f46e5 60%, #f472b6 100%);
+    transform: scale(1.06) rotate(-2deg);
+}
+
+.result {
+    margin-top: 2rem;
+    text-align: center;
+}
+.rekomendasi-box {
+    background: #e0e7ff;
+    color: #1e293b;
+    border-radius: 12px;
+    padding: 1.2rem 1rem;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.07);
+    margin-top: 1rem;
+    animation: fadeIn 0.7s;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-12px); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.consult-footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    color: #a1a1aa;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    opacity: 0.85;
+}
+.footer-emoji {
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+    .consult-container {
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+    }
+    .consult-title {
+        font-size: 1.2rem;
+    }
+    .form-group.card {
+        padding: 0.8rem 0.5rem 0.5rem 0.5rem;
+    }
+}

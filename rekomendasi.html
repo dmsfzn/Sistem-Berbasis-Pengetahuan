@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Konsultasi Rekomendasi Smartphone</title>
+    <link rel="stylesheet" href="rekomendasi.css">
+</head>
+<body>
+    <div class="consult-container">
+        <div class="consult-emoji">🤖📱</div>
+        <h2 class="consult-title">Konsultasi Rekomendasi Smartphone</h2>
+        <div class="consult-progress">
+            <div class="progress-bar"></div>
+        </div>
+        <form id="consultForm">
+            <div class="form-group card">
+                <label for="ram"><span class="q-emoji">💾</span> Seberapa besar RAM yang Anda butuhkan?</label>
+                <select id="ram" name="ram" required>
+                    <option value="">--</option>
+                    <option value="<4GB">&lt;4 GB</option>
+                    <option value="4GB">4 GB</option>
+                    <option value="6GB">6 GB</option>
+                    <option value="8GB">8 GB</option>
+                    <option value=">=12GB">12 GB atau lebih</option>
+                </select>
+            </div>
+            <div class="form-group card">
+                <label for="kamera"><span class="q-emoji">📸</span> Apakah kualitas kamera penting bagi Anda?</label>
+                <select id="kamera" name="kamera" required>
+                    <option value="">--</option>
+                    <option value="Penting">Penting</option>
+                    <option value="Tidak">Tidak</option>
+                </select>
+            </div>
+            <div class="form-group card">
+                <label for="spek"><span class="q-emoji">🎮</span> Apakah Anda sering bermain game atau multitasking berat?</label>
+                <select id="spek" name="spek" required>
+                    <option value="">--</option>
+                    <option value="Ya, Sering">Ya, Sering</option>
+                    <option value="Jarang">Jarang</option>
+                    <option value="Tidak Pernah">Tidak Pernah</option>
+                </select>
+            </div>
+            <div class="form-group card">
+                <label for="harga"><span class="q-emoji">💸</span> Kisaran Harga?</label>
+                <select id="harga" name="harga" required>
+                    <option value="">--</option>
+                    <option value="Dibawah 3 juta">Di bawah 3 juta</option>
+                    <option value="3-6 juta">3-6 juta</option>
+                    <option value="Lebih dari 6 juta">Lebih dari 6 juta</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-btn">🎉 Dapatkan Rekomendasi</button>
+        </form>
+        <div id="result" class="result"></div>
+        <div class="consult-footer">Powered by <span class="footer-emoji">✨</span> Sistem Pakar</div>
+    </div>
+    <script>
+    document.getElementById('consultForm').onsubmit = function(e) {
+        e.preventDefault();
+        // Ambil jawaban user
+        const ram = document.getElementById('ram').value;
+        const kamera = document.getElementById('kamera').value;
+        const spek = document.getElementById('spek').value;
+        const harga = document.getElementById('harga').value;
+        // Panggil fungsi rekomendasi dari rekomendasi.js
+        if (typeof getRekomendasiSmartphone === 'function') {
+            const hasil = getRekomendasiSmartphone({ ram, kamera, spek, harga });
+            // Redirect ke result.html dengan hasil sebagai query string
+            window.location.href = 'result.html?hasil=' + encodeURIComponent(hasil);
+        } else {
+            // Fallback jika fungsi tidak ditemukan
+            const emojiList = ['📱','🤩','🎯','🔥','👍','✨','🚀','🥳'];
+            const randomEmoji = emojiList[Math.floor(Math.random()*emojiList.length)];
+            window.location.href = 'result.html?hasil=' + encodeURIComponent(`${randomEmoji} Rekomendasi smartphone akan muncul di sini sesuai jawaban Anda.<br><span style='font-size:1.5rem;'>Cek hasilnya setelah submit!</span>`);
+        }
+    };
+    </script>
+    <script src="knowledgeBase.js"></script>
+    <script src="rekomendasi.js"></script>
+</body>
+</html>
